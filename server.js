@@ -11,7 +11,7 @@ const options = {
 const io = require("socket.io")(http, options);
 // const io = require("socket.io")(http);
 
-// app.use(cors());
+// http.use(cors());
 
 io.on("connection", (socket) => {
   console.log("NEW socket >> " + socket.id + ":" + Date.now().toLocaleString());
