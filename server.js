@@ -1,7 +1,7 @@
 const app = require("express")();
 const http = require("http").Server(app);
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 const options = {
   cors: true,
