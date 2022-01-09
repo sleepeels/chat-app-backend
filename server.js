@@ -1,3 +1,4 @@
+require("dotenv").config();
 const app = require("express")();
 const http = require("http").Server(app);
 
@@ -9,7 +10,7 @@ const options = {
 
 const io = require("socket.io")(http, options);
 
-const chatHistory = [];
+let chatHistory = [];
 
 io.on("connection", (socket) => {
   console.log("NEW socket >> " + socket.id);
@@ -33,6 +34,11 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("DEAD socket >> " + socket.id);
   });
+});
+
+app.get(`/${process.env.DELETE_URL}`, (req, res) => {
+  chatHistory = [];
+  res.status(200).send({ msg: "good to go" });
 });
 
 http.listen(PORT, () => {
