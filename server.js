@@ -36,7 +36,7 @@ io.on("connection", (socket) => {
   });
 });
 
-app.get("/", (req, res) => {
+http.get("/", (req, res) => {
   chatHistory = [];
   res.status(200).send({ msg: "good to go" });
 });
