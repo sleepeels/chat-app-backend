@@ -36,7 +36,7 @@ io.on("connection", (socket) => {
   });
 });
 
-app.get(`/${process.env.DELETE_URL}`, (req, res) => {
+app.get("/", (req, res) => {
   chatHistory = [];
   res.status(200).send({ msg: "good to go" });
 });
